@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="wrapper">
+     <h2>LOGIN FROM</h2>
+     <div class="from_area">
+        
+       <input type="text" name="" id="email">
+       <div id="error_email" class="error_color"></div>
+
+       <input type="password" name="" id="password">
+       <div id="error_password" class="error_color"></div>
+       <a href="" class="btn_area" onclick="return tanim()">
+         <span class="label">sign in</span>
+         <span class="label">log in</span>
+       </a>
+     </div>
+    </div>
+
+
+    <script>
+        var f_email = document.getElementById("email");
+        var error_email_msg = document.getElementById("error_email");
+
+        var f_password = document.getElementById("password");
+        var error_password_msg = document.getElementById("error_password");
+
+        function tanim() {
+            if (f_email.value =="") {
+                f_email.style.border ="2px solid #e74c3c";
+                error_email_msg.innerHTML="Enter your email";
+                f_email.focus();
+                return false;
+            }
+
+            if (f_email.value != "") {
+                f_email.style.border ="2px solid #dcdcdc";
+                error_email_msg.innerHTML="";
+            }
+
+
+    // password start
+    if (f_password.value == "") {
+      f_password.style.border = "2px solid #e74c3c";
+      error_password_msg.innerHTML = "Enter your Password";
+      f_password.focus();
+      return false;
+   }
+   if (f_password.value.length <= 6) {
+      f_password.style.border = "2px solid #e74c3c";
+      error_password_msg.innerHTML = "Password must be longer than 6 characters";
+      f_password.focus();
+      return false;
+   }
+   if (f_password.value.length >= 20) {
+      f_password.style.border = "2px solid #e74c3c";
+      error_password_msg.innerHTML = "Password must be less than 20 characters";
+      f_password.focus();
+      return false;
+   }
+   if (f_password.value == "password") {
+      f_password.style.border = "2px solid #e74c3c";
+      error_password_msg.innerHTML = "Password cannot be password";
+      f_password.focus();
+      return false;
+   }
+   if (f_password.value != '') {
+      f_password.style.border = "2px solid #dcdcdc";
+      error_password_msg.innerHTML = "";
+   }
+        }
+    </script>
+</body>
+</html>
